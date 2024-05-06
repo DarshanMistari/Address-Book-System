@@ -34,7 +34,7 @@ public class AddressBookMain {
 
     public void displayContacts()
     {
-        System.out.println(" First Name :"+contactsModule.getfName());
+        System.out.println("First Name :"+contactsModule.getfName());
         System.out.println("Last Name :"+contactsModule.getlName());
         System.out.println("Address :"+contactsModule.getAddress());
         System.out.println("City :"+contactsModule.getCity());
@@ -44,12 +44,49 @@ public class AddressBookMain {
         System.out.println("Email id :"+contactsModule.getEmail());
     }
 
+    public void editContacts()
+    {
+        System.out.println("\n Enter the First Name to Edit Contacts : ");
+        String fName = scanner.next();
+
+        if(fName.equals(contactsModule.getfName()))
+        {
+            System.out.println("Contacts is Found.");
+
+            System.out.println("Enter the Last Name:");
+            contactsModule.setlName(scanner.next());
+
+            System.out.println("Enter the Address :");
+            contactsModule.setAddress(scanner.next());
+
+            System.out.println("Enter the City:");
+            contactsModule.setCity(scanner.next());
+
+            System.out.println("Enter the State :");
+            contactsModule.setState(scanner.next());
+
+            System.out.println("Enter the ZipCode :");
+            contactsModule.setZipCode(scanner.next());
+
+            System.out.println("Enter the Phone Number :");
+            contactsModule.setPhoneNo(scanner.next());
+
+            System.out.println("Enter the Email Id :");
+            contactsModule.setEmail(scanner.next());
+        }
+        else
+        {
+            System.out.println("Given Name of Contact is Not Found.");
+        }
+    }
     public static void main(String []args)
     {
         AddressBookMain addressBookMain = new AddressBookMain();
 
         System.out.println("Welcome to Address Book Developed by Darshan.");
         addressBookMain.createContacts();
+        addressBookMain.displayContacts();
+        addressBookMain.editContacts();
         addressBookMain.displayContacts();
     }
 }
