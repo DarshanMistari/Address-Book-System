@@ -34,19 +34,27 @@ public class AddressBookMain {
 
     public void displayContacts()
     {
-        System.out.println("First Name :"+contactsModule.getfName());
-        System.out.println("Last Name :"+contactsModule.getlName());
-        System.out.println("Address :"+contactsModule.getAddress());
-        System.out.println("City :"+contactsModule.getCity());
-        System.out.println("State :"+contactsModule.getState());
-        System.out.println("ZipCode :"+contactsModule.getZipCode());
-        System.out.println("Phone Number :"+contactsModule.getPhoneNo());
-        System.out.println("Email id :"+contactsModule.getEmail());
+        if(contactsModule == null)
+        {
+            System.out.println("Contacts is Not Available.");
+        }
+        else
+        {
+            System.out.println("First Name :"+contactsModule.getfName());
+            System.out.println("Last Name :"+contactsModule.getlName());
+            System.out.println("Address :"+contactsModule.getAddress());
+            System.out.println("City :"+contactsModule.getCity());
+            System.out.println("State :"+contactsModule.getState());
+            System.out.println("ZipCode :"+contactsModule.getZipCode());
+            System.out.println("Phone Number :"+contactsModule.getPhoneNo());
+            System.out.println("Email id :"+contactsModule.getEmail());
+
+        }
     }
 
     public void editContacts()
     {
-        System.out.println("\n Enter the First Name to Edit Contacts : ");
+        System.out.println("\nEnter the First Name to Edit Contacts : ");
         String fName = scanner.next();
 
         if(fName.equals(contactsModule.getfName()))
@@ -79,6 +87,22 @@ public class AddressBookMain {
             System.out.println("Given Name of Contact is Not Found.");
         }
     }
+
+    public void deleteContacts()
+    {
+        System.out.println("Enter the First Name to Delete the Contact");
+        String fName = scanner.next();
+
+        if(fName.equals(contactsModule.getfName()))
+        {
+            contactsModule = null;
+            System.out.println("Contacts is Deleted.");
+        }
+        else
+        {
+            System.out.println("Given Name of Contact is Not Found.");
+        }
+    }
     public static void main(String []args)
     {
         AddressBookMain addressBookMain = new AddressBookMain();
@@ -87,6 +111,8 @@ public class AddressBookMain {
         addressBookMain.createContacts();
         addressBookMain.displayContacts();
         addressBookMain.editContacts();
+        addressBookMain.displayContacts();
+        addressBookMain.deleteContacts();
         addressBookMain.displayContacts();
     }
 }
